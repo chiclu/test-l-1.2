@@ -1,5 +1,5 @@
 import "./App.scss";
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import LoginPage from "./pages/loginPage/LoginPage.js";
@@ -11,6 +11,7 @@ function App() {
   const [userName, updateUserName] = useState("");
   const [userLastName, updateUserLastName] = useState("");
 
+  // Checking if user have typed valid name and last name and enable login button
   const loginHandler = (name, last) => {
     updateUserName(name);
     updateUserLastName(last);
@@ -22,27 +23,26 @@ function App() {
   };
 
   return (
-    <Fragment>
-      <BrowserRouter>
-        <Routes>
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          exact
+          element={
+            <LoginPage onSaveFullName={loginHandler} isLoggedIn={isLoggedIn} />
+          }
+        />
+        {isLoggedIn && (
           <Route
-            path=""
-            element={
-              <LoginPage
-                onSaveFullName={loginHandler}
-                isLoggedIn={isLoggedIn}
-              />
-            }
-          />
-          <Route
+            exact
             path="/main-page"
             element={
               <MainPage userName={userName} userLastName={userLastName} />
             }
           />
-        </Routes>
-      </BrowserRouter>
-    </Fragment>
+        )}
+      </Routes>
+    </BrowserRouter>
   );
 }
 

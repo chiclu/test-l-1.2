@@ -1,0 +1,130 @@
+.login-section {
+  width: 75%;
+  margin: auto;
+}
+
+.login-form {
+  border: solid 2px black;
+  margin: auto;
+  display: flex;
+  div {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: flex-end;
+    margin-right: 100px;
+  }
+}
+
+.label-form {
+  text-align: center;
+  color: $mainColor;
+  padding: 10px;
+  font-size: $mainFont;
+  @include backColor(black);
+}
+
+.login-button {
+  @include backColor(cornflowerblue);
+  border-color: blue;
+  width: $fullWidth;
+  color: $mainColor;
+  position: relative;
+  &:disabled {
+    @include backColor(#dadae7);
+    border: none;
+  }
+  svg {
+    @include svgPosition;
+  }
+}
+
+input[type="text"] {
+  outline-color: cornflowerblue;
+  padding: 10px;
+  width: 180px;
+  height: 60px;
+  margin-left: 35px;
+  font-size: $mainFont;
+}
+
+.button-section {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  font-size: $mainFont;
+  a {
+    width: 200px;
+    height: 60px;
+    margin: 10%;
+  }
+}
+
+.name-section {
+  margin: 20px 0 0px;
+}
+
+.name-section {
+  font-size: $mainFont;
+}
+
+.lastName-section {
+  margin: 20px 0 10%;
+  font-size: $mainFont;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 576px) {
+  .login-section {
+    @include mobPage;
+    height: 100vh;
+  }
+
+  .login-form {
+    border: none;
+    font-size: $mobFontSize;
+    div {
+      @include mobPage;
+      padding-right: 70px;
+    }
+  }
+
+  .label-form {
+    font-size: $mobFontSize;
+    max-height: 55px;
+  }
+
+  input[type="text"] {
+    width: 125px;
+    height: 40px;
+    font-size: $mobFontSize;
+  }
+
+  .button-section {
+    a {
+      width: 500px;
+      height: 30px;
+    }
+  }
+
+  .login-form {
+    display: block;
+    text-align: center;
+  }
+
+  .button-section {
+    width: $fullWidth;
+  }
+
+  .login-button {
+    padding-bottom: 5px;
+    box-shadow: $shadow;
+    font-size: $mobFontSize;
+  }
+
+  .header:first-child {
+    text-align: center;
+  }
+}

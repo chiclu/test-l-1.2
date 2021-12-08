@@ -1,0 +1,175 @@
+.mainPage-section {
+  width: 75%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  border: solid 2px black;
+  height: 300px;
+  h1 {
+    @include backColor(black);
+    color: $mainColor;
+    float: left;
+    width: $fullWidth;
+    padding: 10px;
+  }
+}
+
+.header {
+  position: relative;
+  align-items: center;
+}
+
+.random-button {
+  width: 115px;
+  height: 115px;
+  @include backColor(rgb(160, 148, 148));
+  color: $mainColor;
+  font-size: $mainFont;
+  border: solid 4px;
+  border-color: grey;
+}
+.random-buttons {
+  width: 690px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.buttons-area {
+  display: flex;
+  align-items: center;
+  height: 200px;
+}
+
+.stopButton-area {
+  text-align: center;
+  .result {
+    font-size: 25px;
+  }
+}
+
+.stop-button {
+  height: 170px;
+  width: 260px;
+  color: $mainColor;
+  @include backColor(#e99050);
+  font-size: $mainFont;
+  box-shadow: $shadow;
+  border: solid 4px #d75454;
+  margin-left: 30px;
+  &:disabled {
+    height: 170px;
+    width: 260px;
+    color: $mainColor;
+    background-color: rgb(216, 180, 167);
+    font-size: $mainFont;
+    border: none;
+    margin-left: 30px;
+  }
+}
+
+.reset-button {
+  color: $mainColor;
+  @include backColor(rgb(54, 54, 138));
+  width: 320px;
+  font-size: $mainFont;
+  height: 70px;
+  border: solid 4px blue;
+  margin-right: 10px;
+}
+
+.total-click-text {
+  font-size: $mainFont;
+  color: $mainColor;
+  @include backColor(black);
+  width: 50%;
+  padding-right: 15px;
+  position: absolute;
+  right: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 576px) {
+  .mainPage-section {
+    height: 100vh;
+    border: none;
+    @include mobPage;
+    h1 {
+      margin: 0;
+      font-size: $mobFontSize;
+    }
+    .stopButton-area {
+      div {
+        color: $mainColor;
+        @include backColor(rgb(221, 221, 57));
+        font-size: $mobFontSize;
+        width: 90%;
+        margin: auto;
+        padding: 40px 0 40 0;
+        box-shadow: $shadow;
+        p {
+          margin: auto;
+        }
+      }
+    }
+  }
+
+  .header {
+    position: inherit;
+    align-items: center;
+    flex-flow: column;
+  }
+
+  .buttons-area {
+    display: block;
+  }
+
+  .random-button {
+    width: 55px;
+    height: 55px;
+    font-size: $mobFontSize;
+  }
+
+  .random-buttons {
+    width: 90%;
+    margin: auto;
+    padding-bottom: 20px;
+  }
+
+  .stop-button {
+    height: 60px;
+    width: 80%;
+    font-size: $mobFontSize;
+    margin-left: auto;
+    margin-top: 70px;
+    &:disabled {
+      height: 60px;
+      width: 90%;
+      font-size: $mobFontSize;
+      margin-left: auto;
+      margin-top: 70px;
+    }
+  }
+
+  .reset-button {
+    font-size: $mobFontSize;
+    height: 60px;
+    width: 90%;
+    margin: auto;
+    margin-top: 60px;
+  }
+
+  .total-click-text {
+    font-size: $mobFontSize;
+    width: $fullWidth;
+    position: inherit;
+    justify-content: center;
+    padding-bottom: 5px;
+  }
+
+  .mainPage-section .stopButton-area div p {
+    margin: auto;
+  }
+}

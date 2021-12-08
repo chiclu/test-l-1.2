@@ -1,0 +1,14 @@
+@mixin backColor($backColor) {
+  background-color: $backColor;
+}
+
+@mixin mobPage {
+  background-color: #bbc0ad;
+  width: 100%;
+}
+
+@mixin svgPosition {
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+}
