@@ -1,10 +1,10 @@
-.login-section {
+.loginPage {
   width: 75%;
   margin: auto;
   margin-top: 50px;
 }
 
-.login-form {
+.loginForm {
   border: solid 2px black;
   margin: auto;
   display: flex;
@@ -17,7 +17,7 @@
   }
 }
 
-.label-form {
+.loginPage__labelForm {
   text-align: center;
   color: $mainColor;
   padding: 10px;
@@ -26,7 +26,7 @@
   margin: auto;
 }
 
-input[type="text"] {
+.loginForm__nameSection__nameInput {
   outline-color: cornflowerblue;
   padding: 10px;
   width: 180px;
@@ -35,7 +35,11 @@ input[type="text"] {
   font-size: $mainFont;
 }
 
-.button-section {
+.loginForm__lastNameSection__lastNameInput {
+  @extend .loginForm__nameSection__nameInput;
+}
+
+.loginBtn-section {
   width: 50%;
   display: flex;
   justify-content: flex-end;
@@ -48,15 +52,12 @@ input[type="text"] {
   }
 }
 
-.name-section {
+.loginForm__nameSection {
   margin: 20px 0 0px;
-}
-
-.name-section {
   font-size: $mainFont;
 }
 
-.lastName-section {
+.loginForm__lastNameSection {
   margin: 20px 0 10%;
   font-size: $mainFont;
 }
@@ -64,43 +65,44 @@ input[type="text"] {
 /* RESPONSIVE */
 
 @media (max-width: 576px) {
-  .login-section {
+  .loginPage {
     @include mobPage;
     height: 100vh;
     margin-top: 0;
   }
 
-  .login-form {
+  .loginForm {
     border: none;
     font-size: $mobFontSize;
+    display: block;
+    text-align: center;
     div {
       @include mobPage;
       padding-right: 70px;
     }
   }
 
-  .label-form {
+  .loginPage__labelForm {
     font-size: $mobFontSize;
     max-height: 55px;
   }
 
-  input[type="text"] {
+  .loginForm__nameSection__nameInput {
     width: 125px;
     height: 40px;
     font-size: $mobFontSize;
   }
 
-  .button-section {
+  .loginForm__lastNameSection__lastNameInput {
+    @extend .loginForm__nameSection__nameInput;
+  }
+
+  .loginBtn-section {
     width: $fullWidth;
     a {
       width: 500px;
       height: 30px;
     }
-  }
-
-  .login-form {
-    display: block;
-    text-align: center;
   }
 
   .header:first-child {

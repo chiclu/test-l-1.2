@@ -1,4 +1,4 @@
-.mainPage-section {
+.mainPage {
   width: 75%;
   margin: auto;
   display: flex;
@@ -6,22 +6,33 @@
   border: solid 2px black;
   height: 300px;
   margin-top: 50px;
-  h1 {
+}
+
+.mainPage__header {
+  position: relative;
+  align-items: center;
+  display: flex;
+  .mainPage__header--title {
     @include backColor(black);
     color: $mainColor;
     float: left;
     width: $fullWidth;
     padding: 10px;
   }
+  .mainPage__header--result {
+    font-size: $mainFont;
+    color: $mainColor;
+    @include backColor(black);
+    width: 50%;
+    padding-right: 15px;
+    position: absolute;
+    right: 0;
+    display: flex;
+    justify-content: flex-end;
+  }
 }
 
-.header {
-  position: relative;
-  align-items: center;
-  display: flex;
-}
-
-.buttons-area {
+.mainBtnArea {
   display: flex;
   align-items: center;
   height: 200px;
@@ -29,71 +40,58 @@
 
 .stopButton-area {
   text-align: center;
-  .result {
-    font-size: 25px;
+  div {
+    p {
+      font-size: 25px;
+    }
   }
-}
-
-.total-click-text {
-  font-size: $mainFont;
-  color: $mainColor;
-  @include backColor(black);
-  width: 50%;
-  padding-right: 15px;
-  position: absolute;
-  right: 0;
-  display: flex;
-  justify-content: flex-end;
 }
 
 /* RESPONSIVE */
 
 @media (max-width: 576px) {
-  .mainPage-section {
+  .mainPage {
     height: 100vh;
     border: none;
     @include mobPage;
     margin-top: 0;
-    h1 {
-      margin: 0;
-      font-size: $mobFontSize;
-    }
-    .stopButton-area {
-      div {
-        color: $mainColor;
-        @include backColor(rgb(221, 221, 57));
-        font-size: $mobFontSize;
-        width: 90%;
-        margin: auto;
-        padding: 40px 0 40 0;
-        box-shadow: $shadow;
-        p {
-          margin: auto;
-        }
-      }
-    }
   }
 
-  .header {
+  .mainPage__header {
     position: inherit;
     align-items: center;
     flex-flow: column;
+    .mainPage__header--title {
+      margin: 0;
+      font-size: $mobFontSize;
+      text-align: center;
+    }
+    .mainPage__header--result {
+      font-size: $mobFontSize;
+      width: $fullWidth;
+      position: inherit;
+      justify-content: center;
+      padding-bottom: 5px;
+    }
   }
 
-  .buttons-area {
+  .mainBtnArea {
     display: block;
     margin-top: 50px;
   }
 
-  .total-click-text {
-    font-size: $mobFontSize;
-    width: $fullWidth;
-    position: inherit;
-    justify-content: center;
-    padding-bottom: 5px;
-  }
-
-  .mainPage-section .stopButton-area div p {
-    margin: auto;
+  .stopButton-area {
+    div {
+      color: $mainColor;
+      @include backColor(rgb(221, 221, 57));
+      font-size: $mobFontSize;
+      width: 90%;
+      margin: auto;
+      padding: 40px 0 40 0;
+      box-shadow: $shadow;
+      p {
+        margin: auto;
+      }
+    }
   }
 }

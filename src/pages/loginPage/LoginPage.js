@@ -24,28 +24,30 @@ const LoginPage = (props) => {
   };
 
   return (
-    <section className="login-section">
-      <h1 className="label-form">Login stranica</h1>
-      <form className="login-form">
+    <section className="loginPage">
+      <h1 className="loginPage__labelForm">Login stranica</h1>
+      <form className="loginForm">
         <div>
-          <span className="name-section">
+          <span className="loginForm__nameSection">
             <label>Ime:</label>
             <input
+              className="loginForm__nameSection__nameInput"
               type="text"
               onChange={userNameHandler}
               value={nameInput}
             ></input>
           </span>
-          <span className="lastName-section">
+          <span className="loginForm__lastNameSection">
             <label>Prezime:</label>
             <input
+              className="loginForm__lastNameSection__lastNameInput"
               type="text"
               onChange={userLastNameHandler}
               value={lastNameInput}
             ></input>
           </span>
         </div>
-        <span className="button-section">
+        <span className="loginBtn-section">
           <Link to="/main-page">
             <BaseButton
               isDisabled={!props.isLoggedIn}

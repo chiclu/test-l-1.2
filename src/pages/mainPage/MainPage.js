@@ -32,24 +32,24 @@ const MainPage = (props) => {
   };
 
   return (
-    <section className="mainPage-section">
-      <div className="header">
+    <section className="mainPage">
+      <div className="mainPage__header">
         {showClickedButtons ? (
-          <h1>
+          <h1 className="mainPage__header--title">
             Well done {props.userName} {props.userLastName}
           </h1>
         ) : (
-          <h1>
+          <h1 className="mainPage__header--title">
             Kandidat : {props.userName} {props.userLastName}
           </h1>
         )}
         {showClickedButtons && (
-          <p className="total-click-text">
+          <p className="mainPage__header--result">
             {"Ukupan br. klikova : " + clickedButtons.length}
           </p>
         )}
       </div>
-      <div className="buttons-area">
+      <div className="mainBtnArea">
         <Buttons
           onHandleClick={handleClick}
           activeButton={activeButton}
@@ -59,10 +59,10 @@ const MainPage = (props) => {
         />
         <div className="stopButton-area">
           {showClickedButtons ? (
-            <div className="result">
+            <div>
               <p>{"Prvi klik : dugme br. " + clickedButtons[0]}</p>
 
-              <p className="result">
+              <p>
                 {"Poslednji klik : dugme br. " +
                   clickedButtons[clickedButtons.length - 1]}
               </p>
