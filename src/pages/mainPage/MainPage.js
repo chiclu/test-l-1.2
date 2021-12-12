@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Buttons from "../../components/buttons/Buttons";
+import BaseButton from "../../components/baseButton/BaseButton";
 
 const MainPage = (props) => {
   const [clickedButtons, setClickedButtons] = useState([]);
@@ -31,8 +32,8 @@ const MainPage = (props) => {
   };
 
   return (
-    <section className="mainPage-section mt-sm-5 mt-0 d-flex">
-      <div className="d-flex header">
+    <section className="mainPage-section">
+      <div className="header">
         {showClickedButtons ? (
           <h1>
             Well done {props.userName} {props.userLastName}
@@ -48,7 +49,7 @@ const MainPage = (props) => {
           </p>
         )}
       </div>
-      <div className="buttons-area mt-4 mt-sm-1">
+      <div className="buttons-area">
         <Buttons
           onHandleClick={handleClick}
           activeButton={activeButton}
@@ -68,17 +69,17 @@ const MainPage = (props) => {
             </div>
           ) : null}
           {!showClickedButtons ? (
-            <button
-              disabled={clickedButtons.length === 0}
-              onClick={showClickedNumbers}
-              className="stop-button"
+            <BaseButton
+              isDisabled={clickedButtons.length === 0}
+              clickHandler={showClickedNumbers}
+              type={"stop-button"}
             >
               Stop
-            </button>
+            </BaseButton>
           ) : (
-            <button className="reset-button" onClick={resetArrey}>
+            <BaseButton clickHandler={resetArrey} type={"reset-button"}>
               Reset
-            </button>
+            </BaseButton>
           )}
         </div>
       </div>

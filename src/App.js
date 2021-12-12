@@ -32,7 +32,12 @@ function App() {
             <LoginPage onSaveFullName={loginHandler} isLoggedIn={isLoggedIn} />
           }
         />
-        {isLoggedIn && (
+        <Route
+          exact
+          path="/main-page"
+          element={<MainPage userName={userName} userLastName={userLastName} />}
+        />
+        {/* {isLoggedIn && (
           <Route
             exact
             path="/main-page"
@@ -40,7 +45,7 @@ function App() {
               <MainPage userName={userName} userLastName={userLastName} />
             }
           />
-        )}
+        )} */}
       </Routes>
     </BrowserRouter>
   );

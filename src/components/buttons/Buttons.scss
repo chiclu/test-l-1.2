@@ -1,11 +1,15 @@
-.active {
-  @include backColor(rgb(168, 168, 18));
+.random-buttons {
+  width: 690px;
+  display: flex;
+  justify-content: space-around;
 }
 
-.first {
-  @include backColor(green);
-}
+/* RESPONSIVE */
 
-.last {
-  @include backColor(orange);
+@media (max-width: 576px) {
+  .random-buttons {
+    width: 90%;
+    margin: auto;
+    padding-bottom: 20px;
+  }
 }

@@ -1,6 +1,7 @@
 .login-section {
   width: 75%;
   margin: auto;
+  margin-top: 50px;
 }
 
 .login-form {
@@ -22,21 +23,7 @@
   padding: 10px;
   font-size: $mainFont;
   @include backColor(black);
-}
-
-.login-button {
-  @include backColor(cornflowerblue);
-  border-color: blue;
-  width: $fullWidth;
-  color: $mainColor;
-  position: relative;
-  &:disabled {
-    @include backColor(#dadae7);
-    border: none;
-  }
-  svg {
-    @include svgPosition;
-  }
+  margin: auto;
 }
 
 input[type="text"] {
@@ -80,6 +67,7 @@ input[type="text"] {
   .login-section {
     @include mobPage;
     height: 100vh;
+    margin-top: 0;
   }
 
   .login-form {
@@ -103,6 +91,7 @@ input[type="text"] {
   }
 
   .button-section {
+    width: $fullWidth;
     a {
       width: 500px;
       height: 30px;
@@ -112,16 +101,6 @@ input[type="text"] {
   .login-form {
     display: block;
     text-align: center;
-  }
-
-  .button-section {
-    width: $fullWidth;
-  }
-
-  .login-button {
-    padding-bottom: 5px;
-    box-shadow: $shadow;
-    font-size: $mobFontSize;
   }
 
   .header:first-child {

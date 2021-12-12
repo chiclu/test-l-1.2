@@ -1,35 +1,29 @@
+import BaseButton from "../baseButton/BaseButton";
+import clsx from "clsx";
+
 const Buttons = (props) => {
   // Render buttons
   const renderButtons = () => {
     const number = [1, 2, 3, 4, 5];
-    if (props.showClickedButtons) {
-      // When user clicked stop
-      return number.map((number, i) => {
-        let theFirst = props.theFirst === number && "first";
-        let theLast = props.theLast === number && "last";
-        return (
-          <button
-            key={i}
-            onClick={(event) => props.onHandleClick(event, number)}
-            className={`random-button ${theFirst} ${theLast}`}
-            disabled={true}
-          >
-            {number}
-          </button>
-        );
+
+    // When user clicked stop
+    return number.map((number) => {
+      const yellowBtnStyle = clsx("random-button", {
+        first: props.showClickedButtons && props.theFirst === number,
+        last: props.showClickedButtons && props.theLast === number,
+        active: !props.showClickedButtons && props.activeButton === number,
       });
-    }
-    // When user are clicking
-    return number.map((number, i) => {
-      const classActiv = props.activeButton === number ? "active" : "";
       return (
-        <button
-          key={i}
-          onClick={(event) => props.onHandleClick(event, number)}
-          className={`random-button ${classActiv}`}
+        <BaseButton
+          number={number}
+          clickHandler={props.onHandleClick}
+          key={number}
+          value={number}
+          type={yellowBtnStyle}
+          isDisabled={props.showClickedButtons}
         >
           {number}
-        </button>
+        </BaseButton>
       );
     });
   };

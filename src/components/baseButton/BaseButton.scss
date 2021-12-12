@@ -1,0 +1,105 @@
+.login-button {
+  @include backColor(cornflowerblue);
+  border-color: blue;
+  width: $fullWidth;
+  color: $mainColor;
+  position: relative;
+  &:disabled {
+    @include backColor(#dadae7);
+    border: none;
+  }
+  svg {
+    @include svgPosition;
+  }
+}
+
+.random-button {
+  width: 115px;
+  height: 115px;
+  @include backColor(rgb(160, 148, 148));
+  color: $mainColor;
+  font-size: $mainFont;
+  border: solid 4px;
+  border-color: grey;
+}
+
+.stop-button {
+  height: 170px;
+  width: 260px;
+  color: $mainColor;
+  @include backColor(#e99050);
+  font-size: $mainFont;
+  box-shadow: $shadow;
+  border: solid 4px #d75454;
+  margin-left: 30px;
+  &:disabled {
+    height: 170px;
+    width: 260px;
+    color: $mainColor;
+    background-color: rgb(216, 180, 167);
+    font-size: $mainFont;
+    border: none;
+    margin-left: 30px;
+  }
+}
+
+.reset-button {
+  color: $mainColor;
+  @include backColor(rgb(54, 54, 138));
+  width: 320px;
+  font-size: $mainFont;
+  height: 70px;
+  border: solid 4px blue;
+  margin-right: 10px;
+}
+
+.active {
+  @include backColor(rgb(168, 168, 18));
+}
+
+.first {
+  @include backColor(green);
+}
+
+.last {
+  @include backColor(orange);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 576px) {
+  .login-button {
+    padding-bottom: 5px;
+    box-shadow: $shadow;
+    font-size: $mobFontSize;
+  }
+
+  .random-button {
+    width: 55px;
+    height: 55px;
+    font-size: $mobFontSize;
+  }
+
+  .stop-button {
+    height: 60px;
+    width: 80%;
+    font-size: $mobFontSize;
+    margin-left: auto;
+    margin-top: 70px;
+    &:disabled {
+      height: 60px;
+      width: 90%;
+      font-size: $mobFontSize;
+      margin-left: auto;
+      margin-top: 70px;
+    }
+  }
+
+  .reset-button {
+    font-size: $mobFontSize;
+    height: 60px;
+    width: 90%;
+    margin: auto;
+    margin-top: 60px;
+  }
+}

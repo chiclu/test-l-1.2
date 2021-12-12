@@ -2,10 +2,13 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSignInAlt } from "@fortawesome/free-solid-svg-icons";
+import BaseButton from "../../components/baseButton/BaseButton";
 
 const LoginPage = (props) => {
   const [nameInput, setNameInput] = useState("");
   const [lastNameInput, setLastNameInput] = useState("");
+
+  const loginBtnStyle = "login-button";
 
   // Sending name and last name to app component when changed
   useEffect(() => {
@@ -21,8 +24,8 @@ const LoginPage = (props) => {
   };
 
   return (
-    <section className="mt-sm-5 mt-0 login-section">
-      <h1 className="label-form m-auto">Login stranica</h1>
+    <section className="login-section">
+      <h1 className="label-form">Login stranica</h1>
       <form className="login-form">
         <div>
           <span className="name-section">
@@ -44,9 +47,16 @@ const LoginPage = (props) => {
         </div>
         <span className="button-section">
           <Link to="/main-page">
-            <button disabled={!props.isLoggedIn} className="login-button">
-              <FontAwesomeIcon icon={faSignInAlt} /> Login
-            </button>
+            <BaseButton
+              isDisabled={!props.isLoggedIn}
+              type={loginBtnStyle}
+              clickHandler={() =>
+                props.onSaveFullName(nameInput, lastNameInput)
+              }
+            >
+              <FontAwesomeIcon icon={faSignInAlt} />
+              Login
+            </BaseButton>
           </Link>
         </span>
       </form>
