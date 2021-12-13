@@ -4,31 +4,32 @@ import clsx from "clsx";
 const Buttons = (props) => {
   // Render buttons
   const renderButtons = () => {
-    const number = [1, 2, 3, 4, 5];
+    const numbersArray = [1, 2, 3, 4, 5];
 
     // When user clicked stop
-    return number.map((number) => {
+    return numbersArray.map((numbersArray) => {
       const yellowBtnStyle = clsx("random-button", {
-        first: props.showClickedButtons && props.theFirst === number,
-        last: props.showClickedButtons && props.theLast === number,
-        active: !props.showClickedButtons && props.activeButton === number,
+        first: props.showClickedButtons && props.theFirst === numbersArray,
+        last: props.showClickedButtons && props.theLast === numbersArray,
+        active:
+          !props.showClickedButtons && props.activeButton === numbersArray,
       });
       return (
         <BaseButton
-          number={number}
+          numbersArray={numbersArray}
           clickHandler={props.onHandleClick}
-          key={number}
-          value={number}
+          key={numbersArray}
+          value={numbersArray}
           type={yellowBtnStyle}
           isDisabled={props.showClickedButtons}
         >
-          {number}
+          {numbersArray}
         </BaseButton>
       );
     });
   };
 
-  return <div className="random-buttons">{renderButtons()}</div>;
+  return <div className="main__btn-section--btn-random">{renderButtons()}</div>;
 };
 
 export default Buttons;

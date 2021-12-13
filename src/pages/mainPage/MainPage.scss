@@ -1,47 +1,43 @@
-.mainPage {
+.main {
   width: 75%;
   margin: auto;
   display: flex;
   flex-direction: column;
   border: solid 2px black;
-  height: 300px;
-  margin-top: 50px;
-}
-
-.mainPage__header {
-  position: relative;
-  align-items: center;
-  display: flex;
-  .mainPage__header--title {
-    @include backColor(black);
-    color: $mainColor;
-    float: left;
-    width: $fullWidth;
-    padding: 10px;
-  }
-  .mainPage__header--result {
-    font-size: $mainFont;
-    color: $mainColor;
-    @include backColor(black);
-    width: 50%;
-    padding-right: 15px;
-    position: absolute;
-    right: 0;
+  padding-bottom: 2%;
+  margin-top: 3em;
+  &__header {
+    position: relative;
+    align-items: center;
     display: flex;
-    justify-content: flex-end;
+    &--title {
+      @include backColor(black);
+      color: $mainColor;
+      float: left;
+      width: $fullWidth;
+      padding: 1%;
+    }
+    &--result {
+      font-size: $mainFont;
+      color: $mainColor;
+      @include backColor(black);
+      width: 50%;
+      padding-right: 15px;
+      position: absolute;
+      right: 0;
+      display: flex;
+      justify-content: flex-end;
+    }
   }
 }
 
-.mainBtnArea {
+.main__btn-section {
   display: flex;
   align-items: center;
-  height: 200px;
-}
-
-.stopButton-area {
-  text-align: center;
-  div {
-    p {
+  min-height: 200px;
+  &--stop {
+    text-align: center;
+    div p {
       font-size: 25px;
     }
   }
@@ -50,47 +46,45 @@
 /* RESPONSIVE */
 
 @media (max-width: 576px) {
-  .mainPage {
+  .main {
     height: 100vh;
     border: none;
     @include mobPage;
     margin-top: 0;
-  }
-
-  .mainPage__header {
-    position: inherit;
-    align-items: center;
-    flex-flow: column;
-    .mainPage__header--title {
-      margin: 0;
-      font-size: $mobFontSize;
-      text-align: center;
-    }
-    .mainPage__header--result {
-      font-size: $mobFontSize;
-      width: $fullWidth;
+    &__header {
       position: inherit;
-      justify-content: center;
-      padding-bottom: 5px;
+      align-items: center;
+      flex-flow: column;
+      &--title {
+        margin: 0;
+        font-size: $mobFontSize;
+        text-align: center;
+      }
+      &--result {
+        font-size: $mobFontSize;
+        width: $fullWidth;
+        position: inherit;
+        justify-content: center;
+        padding-bottom: 5px;
+      }
     }
   }
 
-  .mainBtnArea {
+  .main__btn-section {
     display: block;
-    margin-top: 50px;
-  }
-
-  .stopButton-area {
-    div {
-      color: $mainColor;
-      @include backColor(rgb(221, 221, 57));
-      font-size: $mobFontSize;
-      width: 90%;
-      margin: auto;
-      padding: 40px 0 40 0;
-      box-shadow: $shadow;
-      p {
+    margin-top: 3em;
+    &--stop {
+      div {
+        color: $mainColor;
+        @include backColor(rgb(221, 221, 57));
+        font-size: $mobFontSize;
+        width: 90%;
         margin: auto;
+        padding: 0.5em;
+        box-shadow: $shadow;
+        p {
+          margin: auto;
+        }
       }
     }
   }

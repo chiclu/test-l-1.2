@@ -12,3 +12,17 @@
   left: 8px;
   bottom: 8px;
 }
+
+@mixin btnStyle($width, $height, $backColor) {
+  color: $mainColor;
+  font-size: $mainFont;
+  width: $width;
+  height: $height;
+  background-color: $backColor;
+}
+
+@mixin btnMobStyle($width, $height) {
+  font-size: $mobFontSize;
+  width: $width;
+  height: $height;
+}

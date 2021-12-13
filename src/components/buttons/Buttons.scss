@@ -1,5 +1,5 @@
-.random-buttons {
-  width: 690px;
+.main__btn-section--btn-random {
+  width: 67%;
   display: flex;
   justify-content: space-around;
 }
@@ -7,9 +7,9 @@
 /* RESPONSIVE */
 
 @media (max-width: 576px) {
-  .random-buttons {
+  .main__btn-section--btn-random {
     width: 90%;
     margin: auto;
-    padding-bottom: 20px;
+    padding-bottom: 5%;
   }
 }
